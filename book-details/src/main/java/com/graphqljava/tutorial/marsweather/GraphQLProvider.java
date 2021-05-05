@@ -1,4 +1,4 @@
-package com.graphqljava.tutorial.bookdetails;
+package com.graphqljava.tutorial.marsweather;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
@@ -43,13 +43,21 @@ public class GraphQLProvider {
     }
 
     private RuntimeWiring buildWiring() {
-        return RuntimeWiring.newRuntimeWiring()
+        /*
                 .type(newTypeWiring("Query")
                         .dataFetcher("bookById", graphQLDataFetchers.getBookByIdDataFetcher()))
                 .type(newTypeWiring("Book")
                         .dataFetcher("author", graphQLDataFetchers.getAuthorDataFetcher()))
+
+         */
+        return RuntimeWiring.newRuntimeWiring()
+                .type(newTypeWiring("Query")
+                        .dataFetcher("weatherBySol", graphQLDataFetchers.getWeatherBySol()))
+                .type(newTypeWiring("Weather")
+                        .dataFetcher("roverPhoto", graphQLDataFetchers.getRoverPhoto()))
                 .build();
     }
+
 
     @Bean
     public GraphQL graphQL() {

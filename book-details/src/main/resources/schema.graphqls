@@ -1,16 +1,16 @@
 type Query {
-    bookById(id: ID): Book
+    weatherBySol(id: ID): Weather
 }
 
-type Book {
+type Weather {
+    id: ID,
+    date: String,
+    avgPressure: Float,
+    roverPhoto: RoverPhoto
+}
+
+type RoverPhoto {
     id: ID
+    img_src: String,
     name: String
-    pageCount: Int
-    author: Author
-}
-
-type Author {
-    id: ID
-    firstName: String
-    lastName: String
 }
